@@ -9,7 +9,7 @@ import javax.persistence.OneToMany
 class ActorEntity : JpaPersistableEntity() {
 
     @Column(unique = true)
-    var login: String? = null
+    var login: String = ""
 
     var avatar: String? = null
 

@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
 
 @Entity
-class EventEntity {
+class EventEntity :JpaPersistableEntity() {
 
     @Column
     var type: String? = null

@@ -1,9 +1,9 @@
 package com.graphql.play.server.model
 
 data class Repo(
-        val id: Long,
+        var id: Long? = null,
 
-        val name: String,
+        var name: String= "",
 
-        val url: String
+        var url: String = ""
 )

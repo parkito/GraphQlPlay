@@ -5,15 +5,15 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.sql.Timestamp
 
 data class Event(
-        val id: Long,
+        var id: Long? = null,
 
-        val type: String,
+        var type: String = "",
 
-        val actor: Actor,
+        var actor: Actor = Actor(),
 
-        val repo: Repo,
+        var repo: Repo = Repo(),
 
         @JsonProperty("created_at")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-        val createdAt: Timestamp
+        var createdAt: Timestamp = Timestamp(0)
 )
