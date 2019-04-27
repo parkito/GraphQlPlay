@@ -17,6 +17,7 @@ buildscript {
 val h2Version = "1.4.198"
 val graphQlSpringBootStarterVersion = "5.0.2"
 val graphQlJavaDevToolVersion = "5.2.4"
+val graphQlKotlinVersion = "0.2.13"
 
 plugins {
     id("org.jetbrains.kotlin.plugin.jpa") version "1.2.71"
@@ -30,8 +31,10 @@ apply(plugin = "io.spring.dependency-management")
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.graphql-java:graphql-spring-boot-starter:$graphQlSpringBootStarterVersion")
     compile("com.graphql-java:graphql-java-tools:$graphQlJavaDevToolVersion")
+    compile("com.expedia:graphql-kotlin:$graphQlKotlinVersion")
     compile("com.h2database:h2:$h2Version")
     compile("org.jetbrains.kotlin:kotlin-reflect")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")

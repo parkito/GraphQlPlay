@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.sql.Timestamp
 
 data class Event(
-        var id: Long? = null,
+        var id: Long = -1,
 
         var type: String = "",
 
