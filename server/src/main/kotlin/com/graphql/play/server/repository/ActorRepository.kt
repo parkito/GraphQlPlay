@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository
 @Repository
 interface ActorRepository : JpaRepository<ActorEntity, Long> {
 
-    @Query(value = "SELECT ACTOR as ID, AVATAR, LOGIN, MAX(CREATED_AT) as LATEST_EVENT, count(*) AS EVENT_COUNT " +
+    @Query(value = "SELECT ACTOR as ID, AVATAR, LOGIN, MAX(CREATION_DATE) as LATEST_EVENT, count(*) AS EVENT_COUNT " +
             "FROM EVENT_ENTITY INNER JOIN ACTOR_ENTITY ON EVENT_ENTITY.ACTOR = ACTOR_ENTITY.ID  " +
             "GROUP BY ID " +
             "ORDER BY EVENT_COUNT DESC, LATEST_EVENT DESC, LOGIN", nativeQuery = true)

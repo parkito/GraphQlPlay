@@ -14,5 +14,5 @@ class ActorEntity : JpaPersistableEntity() {
     var avatar: String? = null
 
     @OneToMany(mappedBy = "actor")
-    var events: List<EventEntity> = ArrayList<EventEntity>()
+    var events: List<EventEntity> = ArrayList()
 }

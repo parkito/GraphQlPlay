@@ -13,6 +13,6 @@ interface EventRepository : JpaRepository<EventEntity, Long> {
 
     fun findByActorIdOrderById(id: Long?): List<EventEntity>
 
-    @Query(value = "SELECT e FROM EventEntity e LEFT JOIN FETCH e.actor " + "ORDER BY e.actor.id, e.createdAt")
+    @Query(value = "SELECT e FROM EventEntity e LEFT JOIN FETCH e.actor " + "ORDER BY e.actor.id, e.creationDate")
     fun findAllForActorsOrderByActorIdAndCreatedAt(): List<EventEntity>
 }

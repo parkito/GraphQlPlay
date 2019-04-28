@@ -15,7 +15,7 @@ abstract class JpaPersistableEntity : Serializable {
     }
 
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     @Column(unique = true)
     var id: Long? = null
 

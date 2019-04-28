@@ -8,7 +8,7 @@ import javax.persistence.OneToMany
 
 @Entity
 class RepoEntity : JpaPersistableEntity() {
-    @Id
+
     @Column(unique = true)
     var name: String? = null
 
@@ -16,5 +16,5 @@ class RepoEntity : JpaPersistableEntity() {
     var url: String? = null
 
     @OneToMany(mappedBy = "repo")
-    var events: List<EventEntity> = ArrayList<EventEntity>()
+    var events: List<EventEntity> = ArrayList()
 }

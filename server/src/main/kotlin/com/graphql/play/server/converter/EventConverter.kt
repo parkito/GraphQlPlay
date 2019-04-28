@@ -17,7 +17,7 @@ class EventConverter(@Autowired
     override fun convertEntity(entity: EventEntity): Event {
 
         val event = Event()
-        event.id = entity.id
+        event.id = entity.id!!
         event.type = entity.type ?: ""
         event.createdAt = Timestamp(Date.from(entity.creationDate?.toInstant(ZoneOffset.UTC)).time)
         event.actor = actorConverter.convertEntity(entity.actor!!)

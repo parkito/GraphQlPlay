@@ -1,11 +1,11 @@
 package com.graphql.play.server
 
+import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
 
 @SpringBootApplication
 class ServerApplication
 
 fun main(args: Array<String>) {
-    runApplication<ServerApplication>(*args)
+    SpringApplication.run(ServerApplication::class.java, *args)
 }
