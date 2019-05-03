@@ -2,20 +2,18 @@ package com.graphql.play.server.converter
 
 import com.graphql.play.server.entity.EventEntity
 import com.graphql.play.server.model.Event
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import java.sql.Timestamp
 import java.time.ZoneOffset
 import java.util.*
 
 @Component
-class EventConverter(@Autowired
-                     private val actorConverter: ActorConverter,
-                     @Autowired
-                     private val repoConverter: RepoConverter) : Converter<Event, EventEntity> {
+class EventConverter(
+        private val actorConverter: ActorConverter,
+        private val repoConverter: RepoConverter
+) : Converter<Event, EventEntity> {
 
     override fun convertEntity(entity: EventEntity): Event {
-
         val event = Event()
         event.id = entity.id!!
         event.type = entity.type ?: ""

@@ -3,6 +3,7 @@ allprojects {
     version = "0.0.1-SNAPSHOT"
 
     repositories {
+        mavenLocal()
         mavenCentral()
         jcenter()
     }
@@ -33,7 +34,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion")
     implementation("com.graphql-java:graphql-spring-boot-starter:$graphQlSpringBootStarterVersion")
-//    implementation("com.graphql-java:graphiql-spring-boot-starter:$graphQlSpringBootStarterVersion")
+    implementation("ru.siksmfp.kcomv:extensions:0.1.1")
     implementation("com.graphql-java:graphql-java-tools:$graphQlJavaDevToolVersion")
     implementation("com.graphql-java:graphql-java:12.0")
     implementation("com.graphql-java:graphql-java-servlet:6.1.3")

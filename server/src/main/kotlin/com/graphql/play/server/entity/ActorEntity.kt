@@ -1,18 +1,18 @@
 package com.graphql.play.server.entity
 
-import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.OneToMany
 
 @Entity
-class ActorEntity : JpaPersistableEntity() {
+class ActorEntity(
+        @Column(unique = true)
+        val login: String,
 
-    @Column(unique = true)
-    var login: String = ""
+        @Column
+        val avatar: String,
 
-    var avatar: String? = null
+        @OneToMany(mappedBy = "actor")
+        val events: List<EventEntity>
 
-    @OneToMany(mappedBy = "actor")
-    var events: List<EventEntity> = ArrayList()
-}
+) : JpaPersistableEntity()

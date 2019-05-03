@@ -2,14 +2,16 @@ package com.graphql.play.server.model
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
+import ru.siksmfp.kcomv.extension.data.type.constant.EMPTY
+import ru.siksmfp.kcomv.extension.data.type.constant.MINUS_ONE
 import java.sql.Timestamp
 
 data class Event(
-        var id: Long = -1,
+        var id: Long = Long.MINUS_ONE,
 
-        var type: String = "",
+        var type: String = String.EMPTY,
 
-        var actor: Actor = Actor(),
+        var actor: Actor,
 
         var repo: Repo = Repo(),
 

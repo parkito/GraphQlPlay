@@ -7,16 +7,16 @@ import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
 
 @Entity
-class EventEntity : JpaPersistableEntity() {
+class EventEntity(
+        @Column
+        val type: String,
 
-    @Column
-    var type: String? = null
+        @ManyToOne(cascade = [CascadeType.ALL])
+        @JoinColumn(name = "actor")
+        val actor: ActorEntity,
 
-    @ManyToOne(cascade = [CascadeType.ALL])
-    @JoinColumn(name = "actor")
-    var actor: ActorEntity? = null
+        @ManyToOne(cascade = [CascadeType.ALL])
+        @JoinColumn(name = "repo")
+        val repo: RepoEntity
 
-    @ManyToOne(cascade = [CascadeType.ALL])
-    @JoinColumn(name = "repo")
-    var repo: RepoEntity? = null
-}
+) : JpaPersistableEntity()

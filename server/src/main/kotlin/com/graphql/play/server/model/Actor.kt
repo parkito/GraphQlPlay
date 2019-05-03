@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.io.Serializable
 
 data class Actor(
-        var id: Long? = null,
+        var id: Long,
 
-        var login: String = "",
+        var login: String,
 
         @JsonProperty("avatar_url")
-        var avatar: String = ""
+        var avatar: String
+
 ) : Serializable
