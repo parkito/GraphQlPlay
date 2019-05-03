@@ -1,0 +1,9 @@
+type Actor {
+    id: Long
+    login: String
+    avatar: String
+}
+
+type Query {
+    getAll(id: Long):[Actor]
+}
