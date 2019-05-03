@@ -10,10 +10,11 @@ allprojects {
 
 buildscript {
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.4.RELEASE")
     }
 }
 
+val springBootVersion = "2.1.4.RELEASE"
 val h2Version = "1.4.198"
 val graphQlSpringBootStarterVersion = "5.0.2"
 val graphQlJavaDevToolVersion = "5.2.4"
@@ -29,12 +30,12 @@ plugins {
 apply(plugin = "io.spring.dependency-management")
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion")
     implementation("com.graphql-java:graphql-spring-boot-starter:$graphQlSpringBootStarterVersion")
-    implementation("com.graphql-java:graphiql-spring-boot-starter:$graphQlSpringBootStarterVersion")
+//    implementation("com.graphql-java:graphiql-spring-boot-starter:$graphQlSpringBootStarterVersion")
     implementation("com.graphql-java:graphql-java-tools:$graphQlJavaDevToolVersion")
-    implementation ("com.graphql-java:graphql-java:12.0")
+    implementation("com.graphql-java:graphql-java:12.0")
     implementation("com.graphql-java:graphql-java-servlet:6.1.3")
 //    compile("com.expedia:graphql-kotlin:$graphQlKotlinVersion")
     runtime("com.h2database:h2:$h2Version")

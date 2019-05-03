@@ -1,9 +1,9 @@
-package com.graphql.play.server.controller
+package com.graphql.play.server.graphql
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver
 import org.springframework.stereotype.Component
 
 @Component
-class Query : GraphQLQueryResolver {
+class Event : GraphQLQueryResolver {
     fun version() = "1.0.0"
 }
