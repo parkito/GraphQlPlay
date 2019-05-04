@@ -1,12 +1,14 @@
 package com.graphql.play.server.repository
 
+import com.graphql.play.server.entity.ActorEntity
 import com.graphql.play.server.entity.EventEntity
 import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 @Repository
-interface EventRepository : JpaRepository<EventEntity, Long> {
+interface EventRepository : JpaRepository<EventEntity, Long>, JpaSpecificationExecutor<EventEntity> {
 
     @Query(value = "from EventEntity e order by e.id")
     fun findAllOrderById(): List<EventEntity>
