@@ -63,11 +63,11 @@ fun convertPageQuery(pageQuery: PageQuery?): Pageable {
     return PageRequest.of(pageNumber, pageSize, Sort.by(orders))
 }
 
-fun <T> toPagedWithEmptyContent(page: Page<T>): PagedContent<T>? {
-    return toPaged(page, null)
+fun <T> toPagedContent(page: Page<T>): PagedContent<T> {
+    return toPaged(page, page.content)
 }
 
-fun <T> toPagedContent(page: Page<T>, content: List<T>): PagedContent<T>? {
+fun <E,M> toPagedContent(page: Page<E>, content: List<M>): PagedContent<M> {
     return toPaged(page, content)
 }
 
@@ -88,11 +88,7 @@ fun getOrdersBySort(sort: String?): List<Sort.Order> {
     return orders
 }
 
-private fun <T> toPaged(page: Page<T>?, content: List<T>?): PagedContent<T>? {
-    if (page == null) {
-        return null
-    }
-
+private fun <E,M> toPaged(page: Page<E>, content: List<M>): PagedContent<M> {
     return PagedContent(
             pageSize = page.size,
             pageNumber = page.number + 1,
@@ -100,7 +96,7 @@ private fun <T> toPaged(page: Page<T>?, content: List<T>?): PagedContent<T>? {
             isLastPage = page.isLast,
             totalElements = page.totalElements,
             totalPages = page.totalPages,
-            content = page.content
+            content = content
     )
 }
 
