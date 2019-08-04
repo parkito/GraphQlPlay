@@ -1,4 +1,4 @@
-package com.graphql.play.server.graphql
+package com.graphql.play.server.resolver
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver
 import org.springframework.stereotype.Component

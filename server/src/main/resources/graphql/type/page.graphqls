@@ -1,4 +1,4 @@
-type PageQuery {
+input PageQuery {
     pageNumber: Int!
     pageSize: Int!
     sort: String

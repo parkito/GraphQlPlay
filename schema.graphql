@@ -1,9 +1,0 @@
-# This file was generated based on ".graphqlconfig". Do not edit manually.
-
-schema {
-    query: GreetingQuery
-}
-
-type GreetingQuery {
-    getGreeting: String
-}

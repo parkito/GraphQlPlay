@@ -1,0 +1,7 @@
+schema {
+    query: ActorQuery
+}
+
+type ActorQuery {
+    getAll(page: PageQuery): PagedContent
+}
