@@ -67,7 +67,7 @@ fun <T> toPagedContent(page: Page<T>): PagedContent<T> {
     return toPaged(page, page.content)
 }
 
-fun <E,M> toPagedContent(page: Page<E>, content: List<M>): PagedContent<M> {
+fun <E, M> toPagedContent(page: Page<E>, content: List<M>): PagedContent<M> {
     return toPaged(page, content)
 }
 
@@ -88,7 +88,7 @@ fun getOrdersBySort(sort: String?): List<Sort.Order> {
     return orders
 }
 
-private fun <E,M> toPaged(page: Page<E>, content: List<M>): PagedContent<M> {
+private fun <E, M> toPaged(page: Page<E>, content: List<M>): PagedContent<M> {
     return PagedContent(
             pageSize = page.size,
             pageNumber = page.number + 1,

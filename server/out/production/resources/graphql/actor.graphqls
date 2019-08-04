@@ -3,5 +3,5 @@ type Actor {
     login: String
     avatar: String
 
-    getAll(page: PageQuery): PagedContent
+#    getAll(page: PageQuery): PagedContent
 }
