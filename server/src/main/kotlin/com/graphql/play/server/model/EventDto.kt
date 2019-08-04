@@ -2,18 +2,16 @@ package com.graphql.play.server.model
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
-import ru.siksmfp.kcomv.extension.data.type.constant.EMPTY
-import ru.siksmfp.kcomv.extension.data.type.constant.MINUS_ONE
 import java.sql.Timestamp
 
-data class Event(
+data class EventDto(
         val id: Long,
 
         val type: String,
 
-        var actor: Actor,
+        var actorDto: ActorDto,
 
-        var repo: Repo = Repo(),
+        var repoDto: RepoDto = RepoDto(),
 
         @JsonProperty("created_at")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

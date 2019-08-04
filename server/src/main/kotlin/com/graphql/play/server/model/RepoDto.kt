@@ -1,6 +1,6 @@
 package com.graphql.play.server.model
 
-data class Repo(
+data class RepoDto(
         var id: Long? = null,
 
         var name: String= "",

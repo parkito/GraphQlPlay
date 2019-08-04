@@ -3,7 +3,7 @@ package com.graphql.play.server.model
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.io.Serializable
 
-data class Actor(
+data class ActorDto(
         val id: Long,
 
         val login: String,

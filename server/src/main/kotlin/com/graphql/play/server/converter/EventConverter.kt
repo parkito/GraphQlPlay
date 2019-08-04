@@ -1,7 +1,7 @@
 package com.graphql.play.server.converter
 
 import com.graphql.play.server.entity.EventEntity
-import com.graphql.play.server.model.Event
+import com.graphql.play.server.model.EventDto
 import org.springframework.stereotype.Component
 import java.sql.Timestamp
 import java.time.ZoneOffset
@@ -11,23 +11,23 @@ import java.util.*
 class EventConverter(
         private val actorConverter: ActorConverter,
         private val repoConverter: RepoConverter
-) : Converter<Event, EventEntity> {
+) : Converter<EventDto, EventEntity> {
 
-    override fun convertEntity(entity: EventEntity): Event {
-        return Event(
+    override fun convertEntity(entity: EventEntity): EventDto {
+        return EventDto(
                 id = entity.id!!,
                 type = entity.type,
-                actor = actorConverter.convertEntity(entity.actor),
+                actorDto = actorConverter.convertEntity(entity.actor),
                 createdAt = Timestamp(Date.from(entity.creationDate.toInstant(ZoneOffset.UTC)).time),
-                repo = repoConverter.convertEntity(entity.repo)
+                repoDto = repoConverter.convertEntity(entity.repo)
         )
     }
 
-    override fun convertModel(dto: Event): EventEntity {
+    override fun convertModel(dto: EventDto): EventEntity {
         return EventEntity(
-                actor = actorConverter.convertModel(dto.actor),
+                actor = actorConverter.convertModel(dto.actorDto),
                 type = dto.type,
-                repo = repoConverter.convertModel(dto.repo)
+                repo = repoConverter.convertModel(dto.repoDto)
         )
     }
 }

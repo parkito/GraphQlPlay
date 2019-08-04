@@ -3,7 +3,7 @@ package com.graphql.play.server.service
 import com.graphql.play.server.converter.EventConverter
 import com.graphql.play.server.exception.ActorDoesNotExistException
 import com.graphql.play.server.exception.EntityAlreadyExistsException
-import com.graphql.play.server.model.Event
+import com.graphql.play.server.model.EventDto
 import com.graphql.play.server.repository.ActorRepository
 import com.graphql.play.server.repository.EventRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -20,7 +20,7 @@ class EventService(
         @Autowired
         private val eventConverter: EventConverter) {
 
-    fun getAll(): List<Event> {
+    fun getAll(): List<EventDto> {
         return eventConverter.convertEntities(eventRepository.findAllOrderById())
     }
 
@@ -29,16 +29,16 @@ class EventService(
     }
 
     @Transactional
-    fun save(event: Event) {
-        if (eventRepository.findByIdOrNull(event.id) != null) {
-            throw EntityAlreadyExistsException("Event with id = ${event.id} already exists")
+    fun save(eventDto: EventDto) {
+        if (eventRepository.findByIdOrNull(eventDto.id) != null) {
+            throw EntityAlreadyExistsException("Event with id = ${eventDto.id} already exists")
         }
 
-        val eventEntity = eventConverter.convertModel(event)
+        val eventEntity = eventConverter.convertModel(eventDto)
         eventRepository.save(eventEntity)
     }
 
-    fun findByActor(actorId: Long?): List<Event> {
+    fun findByActor(actorId: Long?): List<EventDto> {
         if (actorRepository.findByIdOrNull(actorId) == null) {
             throw ActorDoesNotExistException("Can't find actor with id = $actorId")
         }
