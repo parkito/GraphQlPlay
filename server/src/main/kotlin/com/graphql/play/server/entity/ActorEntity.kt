@@ -1,5 +1,6 @@
 package com.graphql.play.server.entity
 
+import java.util.*
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.OneToMany
@@ -15,4 +16,5 @@ class ActorEntity(
         @OneToMany(mappedBy = "actor")
         val events: List<EventEntity>
 
-) : JpaPersistableEntity()
+) : JpaPersistableEntity() {
+}

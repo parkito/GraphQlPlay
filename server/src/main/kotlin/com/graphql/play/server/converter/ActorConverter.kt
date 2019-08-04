@@ -3,25 +3,24 @@ package com.graphql.play.server.converter
 import com.graphql.play.server.entity.ActorEntity
 import com.graphql.play.server.model.Actor
 import org.springframework.stereotype.Component
+import java.util.*
 
 @Component
 class ActorConverter : Converter<Actor, ActorEntity> {
-    override fun convertEntity(entity: ActorEntity): Actor {
 
-        val actor = Actor()
-        actor.id = entity.id!!
-        actor.avatar = entity.avatar ?: ""
-        actor.login = entity.login
-        return actor
+    override fun convertEntity(entity: ActorEntity): Actor {
+        return Actor(
+                id = entity.id!!,
+                avatar = entity.avatar,
+                login = entity.login
+        )
     }
 
     override fun convertModel(dto: Actor): ActorEntity {
-
-        val actorEntity = ActorEntity()
-        actorEntity.id = dto.id
-        actorEntity.avatar = dto.avatar
-        actorEntity.login = dto.login
-
-        return actorEntity
+        return ActorEntity(
+                login = dto.login,
+                avatar = dto.avatar,
+                events = Collections.emptyList()
+        )
     }
 }

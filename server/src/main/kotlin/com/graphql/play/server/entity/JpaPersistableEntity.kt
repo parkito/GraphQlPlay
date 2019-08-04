@@ -3,7 +3,6 @@ package com.graphql.play.server.entity
 import java.io.Serializable
 import java.time.LocalDateTime
 import javax.persistence.Column
-import javax.persistence.GeneratedValue
 import javax.persistence.Id
 import javax.persistence.MappedSuperclass
 
@@ -20,7 +19,7 @@ abstract class JpaPersistableEntity : Serializable {
     var id: Long? = null
 
     @Column
-    var creationDate: LocalDateTime? = null
+    var creationDate: LocalDateTime = LocalDateTime.now()
 
     @Column
     var updateDate: LocalDateTime? = null
@@ -40,7 +39,7 @@ abstract class JpaPersistableEntity : Serializable {
 
     override fun hashCode(): Int {
         var result = id?.hashCode() ?: 0
-        result = 31 * result + (creationDate?.hashCode() ?: 0)
+        result = 31 * result + creationDate.hashCode()
         result = 31 * result + (updateDate?.hashCode() ?: 0)
         return result
     }

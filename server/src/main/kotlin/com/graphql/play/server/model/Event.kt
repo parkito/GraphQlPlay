@@ -7,9 +7,9 @@ import ru.siksmfp.kcomv.extension.data.type.constant.MINUS_ONE
 import java.sql.Timestamp
 
 data class Event(
-        var id: Long = Long.MINUS_ONE,
+        val id: Long,
 
-        var type: String = String.EMPTY,
+        val type: String,
 
         var actor: Actor,
 

@@ -4,7 +4,6 @@ import com.graphql.play.server.entity.RepoEntity
 import com.graphql.play.server.model.Repo
 import org.springframework.stereotype.Component
 
-
 @Component
 class RepoConverter : Converter<Repo, RepoEntity> {
     override fun convertEntity(entity: RepoEntity): Repo {

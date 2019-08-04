@@ -14,26 +14,20 @@ class EventConverter(
 ) : Converter<Event, EventEntity> {
 
     override fun convertEntity(entity: EventEntity): Event {
-        val event = Event()
-        event.id = entity.id!!
-        event.type = entity.type ?: ""
-        event.createdAt = Timestamp(Date.from(entity.creationDate?.toInstant(ZoneOffset.UTC)).time)
-        event.actor = actorConverter.convertEntity(entity.actor!!)
-        event.repo = repoConverter.convertEntity(entity.repo!!)
-
-        return event
+        return Event(
+                id = entity.id!!,
+                type = entity.type,
+                actor = actorConverter.convertEntity(entity.actor),
+                createdAt = Timestamp(Date.from(entity.creationDate.toInstant(ZoneOffset.UTC)).time),
+                repo = repoConverter.convertEntity(entity.repo)
+        )
     }
 
-    override fun convertModel(event: Event): EventEntity {
-
-        val eventEntity = EventEntity()
-        eventEntity.id = event.id
-        eventEntity.type = event.type
-        eventEntity.creationDate = event.createdAt.toLocalDateTime()
-
-        eventEntity.actor = actorConverter.convertModel(event.actor)
-        eventEntity.repo = repoConverter.convertModel(event.repo)
-
-        return eventEntity
+    override fun convertModel(dto: Event): EventEntity {
+        return EventEntity(
+                actor = actorConverter.convertModel(dto.actor),
+                type = dto.type,
+                repo = repoConverter.convertModel(dto.repo)
+        )
     }
 }
