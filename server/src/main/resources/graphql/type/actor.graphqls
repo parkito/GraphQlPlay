@@ -8,3 +8,8 @@ type PagedActor{
     pageInfo:PagedInfo
     content:[ActorDto]
 }
+
+input ActorDtoInput{
+    id:Long
+    #    actorDto: ActorDto
+}

@@ -1,8 +1,4 @@
-schema {
-    query: ActorResolver
-}
-
-type ActorResolver {
+type ActorQueryResolver {
     findAll(page: PageQuery): PagedActor
     findById(id:Long):ActorDto
 }

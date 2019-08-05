@@ -1,0 +1,10 @@
+schema {
+    query: ActorQueryResolver
+    mutation: ActorMutationResolver
+
+}
+
+
+scalar LocalDate
+scalar Long
+scalar Object
