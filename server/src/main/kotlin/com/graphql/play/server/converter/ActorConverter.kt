@@ -1,7 +1,7 @@
 package com.graphql.play.server.converter
 
 import com.graphql.play.server.entity.ActorEntity
-import com.graphql.play.server.model.ActorDto
+import com.graphql.play.server.model.actor.ActorDto
 import org.springframework.stereotype.Component
 import java.util.*
 

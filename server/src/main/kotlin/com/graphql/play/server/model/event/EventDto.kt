@@ -1,7 +1,9 @@
-package com.graphql.play.server.model
+package com.graphql.play.server.model.event
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.graphql.play.server.model.repo.RepoDto
+import com.graphql.play.server.model.actor.ActorDto
 import java.sql.Timestamp
 
 data class EventDto(

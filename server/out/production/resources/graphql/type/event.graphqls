@@ -4,7 +4,5 @@ type Event {
     actor: Actor
     repo: Repo
     createdAt: LocalDate
-
-    #    getGreeting(id: String): Event
 }
 

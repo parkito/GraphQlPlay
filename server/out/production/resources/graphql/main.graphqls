@@ -1,7 +1,0 @@
-schema {
-    query: GreetingQuery
-}
-
-type GreetingQuery{
-    getGreeting:String
-}

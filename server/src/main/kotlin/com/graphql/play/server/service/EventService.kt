@@ -3,7 +3,7 @@ package com.graphql.play.server.service
 import com.graphql.play.server.converter.EventConverter
 import com.graphql.play.server.exception.ActorDoesNotExistException
 import com.graphql.play.server.exception.EntityAlreadyExistsException
-import com.graphql.play.server.model.EventDto
+import com.graphql.play.server.model.event.EventDto
 import com.graphql.play.server.repository.ActorRepository
 import com.graphql.play.server.repository.EventRepository
 import org.springframework.beans.factory.annotation.Autowired

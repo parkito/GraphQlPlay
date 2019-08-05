@@ -4,13 +4,12 @@ input PageQuery {
     sort: String
 }
 
-type PagedContent {
+type PagedInfo {
     pageSize: Int
     pageNumber: Int
     isFirstPage: Boolean
     isLastPage: Boolean
     totalElements: Long
     totalPages: Int
-    content: [Object]
 }
 

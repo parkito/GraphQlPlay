@@ -1,7 +1,7 @@
 package com.graphql.play.server.converter
 
 import com.graphql.play.server.entity.EventEntity
-import com.graphql.play.server.model.EventDto
+import com.graphql.play.server.model.event.EventDto
 import org.springframework.stereotype.Component
 import java.sql.Timestamp
 import java.time.ZoneOffset

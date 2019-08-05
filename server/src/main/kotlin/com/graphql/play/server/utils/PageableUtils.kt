@@ -1,7 +1,8 @@
 package com.graphql.play.server.utils
 
+import com.graphql.play.server.model.page.PageInfo
 import com.graphql.play.server.model.page.PageQuery
-import com.graphql.play.server.model.page.PagedContent
+import com.graphql.play.server.model.page.Paginated
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
@@ -63,11 +64,11 @@ fun convertPageQuery(pageQuery: PageQuery?): Pageable {
     return PageRequest.of(pageNumber, pageSize, Sort.by(orders))
 }
 
-fun <T> toPagedContent(page: Page<T>): PagedContent<T> {
+fun <T> toPagedContent(page: Page<T>): Paginated<T> {
     return toPaged(page, page.content)
 }
 
-fun <E, M> toPagedContent(page: Page<E>, content: List<M>): PagedContent<M> {
+fun <E, M> toPagedContent(page: Page<E>, content: List<M>): Paginated<M> {
     return toPaged(page, content)
 }
 
@@ -88,15 +89,16 @@ fun getOrdersBySort(sort: String?): List<Sort.Order> {
     return orders
 }
 
-private fun <E, M> toPaged(page: Page<E>, content: List<M>): PagedContent<M> {
-    return PagedContent(
+private fun <E, M> toPaged(page: Page<E>, content: List<M>): Paginated<M> {
+    val pageInfo = PageInfo(
             pageSize = page.size,
             pageNumber = page.number + 1,
             isFirstPage = page.isFirst,
             isLastPage = page.isLast,
             totalElements = page.totalElements,
-            totalPages = page.totalPages,
-            content = content
+            totalPages = page.totalPages
     )
+
+    return Paginated(pageInfo, content)
 }
 

@@ -6,4 +6,5 @@ data class PageQuery(
         val pageNumber: Int,
         val pageSize: Int,
         val sort: String? = null
+//todo implement filterable
 ) : Serializable

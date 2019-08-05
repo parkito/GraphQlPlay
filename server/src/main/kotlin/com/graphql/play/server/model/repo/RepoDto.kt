@@ -1,4 +1,4 @@
-package com.graphql.play.server.model
+package com.graphql.play.server.model.repo
 
 data class RepoDto(
         var id: Long? = null,

@@ -1,7 +1,7 @@
 package com.graphql.play.server.converter
 
 import com.graphql.play.server.entity.RepoEntity
-import com.graphql.play.server.model.RepoDto
+import com.graphql.play.server.model.repo.RepoDto
 import org.springframework.stereotype.Component
 
 @Component

@@ -1,7 +1,0 @@
-type Actor {
-    id: Long
-    login: String
-    avatar: String
-
-#    getAll(page: PageQuery): PagedContent
-}
