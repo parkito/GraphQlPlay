@@ -1,4 +1,4 @@
-type Repo {
+type RepoDto {
     id: Long
     name: String
     url: String

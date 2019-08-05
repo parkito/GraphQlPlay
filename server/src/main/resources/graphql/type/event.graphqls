@@ -1,8 +1,8 @@
-type Event {
+type EventDto {
     id: Long
     type:String
-    actor: Actor
-    repo: Repo
+    actor: ActorDto
+    repo: RepoDto
     createdAt: LocalDate
 }
 

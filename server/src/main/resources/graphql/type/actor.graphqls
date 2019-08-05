@@ -1,10 +1,10 @@
-type Actor {
+type ActorDto {
     id: Long
     login: String
     avatar: String
 }
 
-type PaginatedActor{
-    pageInfo:PagedInfo!
-    content:[Actor]
+type PagedActor{
+    pageInfo:PagedInfo
+    content:[ActorDto]
 }
