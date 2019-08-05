@@ -3,9 +3,10 @@ schema {
 }
 
 type ActorResolver {
-    getAll(page: PageQuery): PagedInfo
+    getAll(page: PageQuery): PagedActor
 }
 
 type PagedActor{
-
+    pageInfo:PagedInfo,
+    content:[Actor]
 }

@@ -1,0 +1,7 @@
+{
+    getAll(page: {pageNumber: 1,pageSize: 1}){
+        content{
+            id
+        }
+    }
+}
